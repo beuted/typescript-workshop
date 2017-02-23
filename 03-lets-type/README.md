@@ -212,9 +212,16 @@ Galloping...
 Tommy the Palomino moved 34m.
 ```
 
+## Generics
+
+TODO
+
 ## Much more
 
-Typescript also support [abstract class](http://www.typescriptlang.org/docs/handbook/classes.html), [Generic class and functions](https://www.typescriptlang.org/docs/handbook/generics.html)
+
+Typescript also support [abstract class](http://www.typescriptlang.org/docs/handbook/classes.html),
+[Generic class and functions](https://www.typescriptlang.org/docs/handbook/generics.html) and all the
+Object Oriented sugar you're expecting from an Object Oriented Language.
 
 ## Enums
 
@@ -232,10 +239,9 @@ let c: Color = Color.Green;
 
 _More information about [enum compilation here](https://www.typescriptlang.org/docs/handbook/enums.html)_
 
-
 ## Union Types
 
-
+TODO
 
 ## Nullable Types & --strictNullChecks
 
