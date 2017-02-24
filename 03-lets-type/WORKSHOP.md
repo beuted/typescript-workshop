@@ -1,6 +1,7 @@
-# Workshops
+# Workshop - Let's Type
 
-[Use the Typescript playgound to play around](https://www.typescriptlang.org/play)
+* [Use the Typescript playgound to play around](https://www.typescriptlang.org/play)
+* Have a look at the [typescript doc](https://www.typescriptlang.org/docs) when doing these exsercises.
 
 ## Basic class implementation
 
@@ -43,4 +44,6 @@ darthSidious.describe();
 > My name is Darth Sidious
 > and I'm on the Dark side of the force
 > ```
+
+## Generics
 

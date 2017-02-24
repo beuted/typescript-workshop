@@ -1,12 +1,8 @@
 # Let's type
 
-We're going to have quick overview of the typing system. Look at
+We're going to have quick overview of the typing system.
 
-//TODO
-//TODO
-//TODO
-
-You can have a look at the typescript doc on [Basic Types](https://www.typescriptlang.org/docs/handbook/basic-types.html) and [Advanced Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
+> You can have a look at the typescript doc on [Basic Types](https://www.typescriptlang.org/docs/handbook/basic-types.html) and [Advanced Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
 
 ## Syntax
 
@@ -211,37 +207,6 @@ Sammy the Python moved 5m.
 Galloping...
 Tommy the Palomino moved 34m.
 ```
-
-## Generics
-
-TODO
-
-## Much more
-
-
-Typescript also support [abstract class](http://www.typescriptlang.org/docs/handbook/classes.html),
-[Generic class and functions](https://www.typescriptlang.org/docs/handbook/generics.html) and all the
-Object Oriented sugar you're expecting from an Object Oriented Language.
-
-## Enums
-
-```ts
-enum Color { Red = 1, Green = 2, Blue = 4 }
-let c: Color = Color.Green;
-```
-
-> ⚠️️ If you don't want to do any computation inside you should use `const enums` that will generate absolutly no code.
-> 
-> ```ts
-> const enum Color { Red = 1, Green = 2, Blue = 4 }
-> let c: Color = Color.Green;
-> ```
-
-_More information about [enum compilation here](https://www.typescriptlang.org/docs/handbook/enums.html)_
-
-## Union Types
-
-TODO
 
 ## Nullable Types & --strictNullChecks
 

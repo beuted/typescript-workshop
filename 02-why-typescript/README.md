@@ -15,7 +15,7 @@ Since they needed ES2015 features such as classes it naturally became a transpil
 [It is easier to find support for Typescript on the web than it is for it's competitors](https://trends.google.com/trends/explore?date=all&q=%2Fm%2F0hjc5m0,%2Fm%2F0n50hxv,babel%20javascript,%2Fm%2F0h52xr1,%2Fm%2F0ncc1sv)
 <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/925_RC01/embed_loader.js"></script> <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/m/0hjc5m0","geo":"","time":"all"},{"keyword":"/m/0n50hxv","geo":"","time":"all"},{"keyword":"babel javascript","geo":"","time":"all"},{"keyword":"/m/0h52xr1","geo":"","time":"all"},{"keyword":"/m/0ncc1sv","geo":"","time":"all"}],"category":0,"property":""}, {"exploreQuery":"date=all&q=%2Fm%2F0hjc5m0,%2Fm%2F0n50hxv,babel%20javascript,%2Fm%2F0h52xr1,%2Fm%2F0ncc1sv","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
 
-It has already been adpoted [by many](https://github.com/search?p=2&q=stars%3A%3E1+language%3ATypeScript&ref=searchresults&type=Repositories&utf8=%E2%9C%93) to build their project: Angular2, Ionic, Phaser, rxjs, NativeScript...
+And it has already been adopted [by many](https://github.com/search?p=2&q=stars%3A%3E1+language%3ATypeScript&ref=searchresults&type=Repositories&utf8=%E2%9C%93) to build their project: Angular2, Ionic, Phaser, rxjs, NativeScript...
 
 ## Pros and Cons
 
