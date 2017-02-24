@@ -44,6 +44,3 @@ darthSidious.describe();
 > My name is Darth Sidious
 > and I'm on the Dark side of the force
 > ```
-
-## Generics
-

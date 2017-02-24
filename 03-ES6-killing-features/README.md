@@ -1,4 +1,4 @@
-# ES6 killing features you can use in Typescript
+# ES6 killer features you can use in Typescript
 
 ## `this` and [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
@@ -29,7 +29,7 @@ alert("card: " + pickedCard.card + " of " + pickedCard.suit);
 
 What does it return ?
 
-[Let's try it and understand what happens](https://www.typescriptlang.org/play/#src=let%20deck%20%3D%20%7B%0D%0A%20%20%20%20suits%3A%20%5B%22hearts%22%2C%20%22spades%22%2C%20%22clubs%22%2C%20%22diamonds%22%5D%2C%0D%0A%20%20%20%20cards%3A%20Array(52)%2C%0D%0A%20%20%20%20createCardPicker%3A%20function()%20%7B%0D%0A%20%20%20%20%20%20%20%20return%20function()%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20pickedCard%20%3D%20Math.floor(Math.random()%20*%2052)%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20pickedSuit%20%3D%20Math.floor(pickedCard%20%2F%2013)%3B%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%7Bsuit%3A%20this.suits%5BpickedSuit%5D%2C%20card%3A%20pickedCard%20%25%2013%7D%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%7D%0D%0A%7D%0D%0A%0D%0Alet%20cardPicker%20%3D%20deck.createCardPicker()%3B%0D%0Alet%20pickedCard%20%3D%20cardPicker()%3B%0D%0A%0D%0Aalert(%22card%3A%20%22%20%2B%20pickedCard.card%20%2B%20%22%20of%20%22%20%2B%20pickedCard.suit)%3B)
+Let's try it and understand what happens: [Playground link](https://www.typescriptlang.org/play/#src=let%20deck%20%3D%20%7B%0D%0A%20%20%20%20suits%3A%20%5B%22hearts%22%2C%20%22spades%22%2C%20%22clubs%22%2C%20%22diamonds%22%5D%2C%0D%0A%20%20%20%20cards%3A%20Array(52)%2C%0D%0A%20%20%20%20createCardPicker%3A%20function()%20%7B%0D%0A%20%20%20%20%20%20%20%20return%20function()%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20pickedCard%20%3D%20Math.floor(Math.random()%20*%2052)%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20pickedSuit%20%3D%20Math.floor(pickedCard%20%2F%2013)%3B%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%7Bsuit%3A%20this.suits%5BpickedSuit%5D%2C%20card%3A%20pickedCard%20%25%2013%7D%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%7D%0D%0A%7D%0D%0A%0D%0Alet%20cardPicker%20%3D%20deck.createCardPicker()%3B%0D%0Alet%20pickedCard%20%3D%20cardPicker()%3B%0D%0A%0D%0Aalert(%22card%3A%20%22%20%2B%20pickedCard.card%20%2B%20%22%20of%20%22%20%2B%20pickedCard.suit)%3B)
 
 Try replacing `function()` by `() =>`
 
@@ -56,6 +56,7 @@ function letTest() {
   console.log(x);  // 1
 }
 ```
+[Playground Link](https://www.typescriptlang.org/play/#src=function%20varTest()%20%7B%0D%0A%20%20var%20x%20%3D%201%3B%0D%0A%20%20if%20(true)%20%7B%0D%0A%20%20%20%20var%20x%20%3D%202%3B%20%20%2F%2F%20same%20variable!%0D%0A%20%20%20%20console.log(x)%3B%20%20%2F%2F%202%0D%0A%20%20%7D%0D%0A%20%20console.log(x)%3B%20%20%2F%2F%202%0D%0A%7D%0D%0A%0D%0Afunction%20letTest()%20%7B%0D%0A%20%20let%20x%20%3D%201%3B%0D%0A%20%20if%20(true)%20%7B%0D%0A%20%20%20%20let%20x%20%3D%202%3B%20%20%2F%2F%20different%20variable%0D%0A%20%20%20%20console.log(x)%3B%20%20%2F%2F%202%0D%0A%20%20%7D%0D%0A%20%20console.log(x)%3B%20%20%2F%2F%201%0D%0A%7D)
 
 `const` is used to define constants that will throw error if reasigned.
 
@@ -67,22 +68,27 @@ const MY_FAV = 7;
 MY_FAV = 20;
 ```
 
+[Playground Link](https://www.typescriptlang.org/play/#src=%2F%2F%20define%20MY_FAV%20as%20a%20constant%20and%20give%20it%20the%20value%207%0D%0Aconst%20MY_FAV%20%3D%207%3B%0D%0A%0D%0A%2F%2F%20this%20will%20throw%20an%20error%0D%0AMY_FAV%20%3D%2020%3B)
+
 ## Template strings
 
 Template strings provide syntactic sugar for constructing strings. This is similar to string interpolation features in Perl, Python and more
 
 ```ts
 // Basic literal string creation
-`In JavaScript '\n' is a line-feed.`
+console.log(`In JavaScript '\n' is a line-feed.`);
 
 // Multiline strings
-`In JavaScript this is
- not legal.`
+console.log(`In JavaScript this is
+ not legal.`);
 
 // String interpolation
-var name = "Bob", time = "today";
-`Hello ${name}, how are you ${time}?`
+var name = "Bob";
+var time = "today";
+console.log(`Hello ${name}, how are you ${time}?`);
 ```
+
+[Playground Link](https://www.typescriptlang.org/play/#src=%2F%2F%20Basic%20literal%20string%20creation%0D%0Aconsole.log(%60In%20JavaScript%20'%5Cn'%20is%20a%20line-feed.%60)%3B%0D%0A%0D%0A%2F%2F%20Multiline%20strings%0D%0Aconsole.log(%60In%20JavaScript%20this%20is%0D%0A%20not%20legal.%60)%3B%0D%0A%0D%0A%2F%2F%20String%20interpolation%0D%0Avar%20name%20%3D%20%22Bob%22%3B%0D%0Avar%20time%20%3D%20%22today%22%3B%0D%0Aconsole.log(%60Hello%20%24%7Bname%7D%2C%20how%20are%20you%20%24%7Btime%7D%3F%60)%3B)
 
 ## [Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
@@ -108,84 +114,7 @@ console.log(p); // 42
 console.log(q); // true
 ```
 
-## [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) and [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
-
-Efficient data structures for common algorithms!
-
-```ts
-// Sets
-var s = new Set();
-s.add("hello").add("goodbye").add("hello");
-console.log(s.size) // 2;
-console.log(s.has("hello")) // true;
-
-// Maps - keys can be anything, but Typescript will help us restrict key/valmue types
-var m = new Map();
-m.set("hello", 42);
-m.set(s, 34);
-console.log(m.get(s)) // 34;
-```
-
-## [Iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
-
-Iterator objects enable custom iteration like CLR IEnumerable or Java Iterable.
-This way you can iterate over Array, Map, Set, function arguments etc...
-
-```ts
-let iterable = new Map([['a', 1], ['b', 2], ['c', 3]]);
-
-for (let entry of iterable) {
-  console.log(entry);
-}
-// ['a', 1]
-// ['b', 2]
-// ['c', 3]
-
-for (let [key, value] of iterable) {
-  console.log(value);
-}
-// 1
-// 2
-// 3
-```
-
-You can create your on iterator to iterate over, Iteration is based on these duck-typed interfaces:
-
-```ts
-interface IteratorResult {
-  done: boolean;
-  value: any;
-}
-interface Iterator {
-  next(): IteratorResult;
-}
-interface Iterable {
-  [Symbol.iterator](): Iterator
-}
-```
-
-Here is an example:
-
-```ts
-let fibonacci = {
-  [Symbol.iterator]() {
-    let pre = 0, cur = 1;
-    return {
-      next() {
-        [pre, cur] = [cur, pre + cur];
-        return { done: false, value: cur }
-      }
-    }
-  }
-}
-
-for (var n of fibonacci) {
-  // truncate the sequence at 1000
-  if (n > 1000)
-    break;
-  console.log(n);
-}
-```
+[Playground Link](https://www.typescriptlang.org/play/#src=var%20a%2C%20b%2C%20rest%3B%0D%0A%5Ba%2C%20b%5D%20%3D%20%5B10%2C%2020%5D%3B%0D%0Aconsole.log(a)%3B%20%2F%2F%2010%0D%0Aconsole.log(b)%3B%20%2F%2F%2020%0D%0A%0D%0A%5Ba%2C%20b%2C%20...rest%5D%20%3D%20%5B10%2C%2020%2C%2030%2C%2040%2C%2050%5D%3B%0D%0Aconsole.log(a)%3B%20%2F%2F%2010%0D%0Aconsole.log(b)%3B%20%2F%2F%2020%0D%0Aconsole.log(rest)%3B%20%2F%2F%20%5B30%2C%2040%2C%2050%5D%0D%0A%0D%0Avar%20o%20%3D%20%7Bp%3A%2042%2C%20q%3A%20true%7D%3B%0D%0Avar%20%7Bp%2C%20q%7D%20%3D%20o%3B%0D%0Aconsole.log(p)%3B%20%2F%2F%2042%0D%0Aconsole.log(q)%3B%20%2F%2F%20true)
 
 ## [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
@@ -210,5 +139,94 @@ myFirstPromise.then(successMessage => {
     console.log(":( " + errorMessage);
 });
 ```
+
+## [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) and [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+
+Efficient data structures for common algorithms!
+
+```ts
+// Sets
+var s = new Set();
+s.add("hello").add("goodbye").add("hello");
+console.log(s.size) // 2;
+console.log(s.has("hello")) // true;
+
+// Maps - keys can be anything, but Typescript will help us restrict key/valmue types
+var m = new Map();
+m.set("hello", 42);
+m.set(s, 34);
+console.log(m.get(s)) // 34;
+```
+
+> ⚠️️ For ES5, Typescript does not provide polyfills for Map and Set, [you need to add them yourself](http://stackoverflow.com/questions/30019542/es6-map-in-typescript/30112075#30112075).
+> They say they will never do (but it works when targetting ES6 obviously)
+
+[Playground Link](https://www.typescriptlang.org/play/#src=%2F%2F%20Sets%0D%0Avar%20s%20%3D%20new%20Set()%3B%0D%0As.add(%22hello%22).add(%22goodbye%22).add(%22hello%22)%3B%0D%0Aconsole.log(s.size)%20%2F%2F%202%3B%0D%0Aconsole.log(s.has(%22hello%22))%20%2F%2F%20true%3B%0D%0A%0D%0A%2F%2F%20Maps%20-%20keys%20can%20be%20anything%2C%20but%20Typescript%20will%20help%20us%20restrict%20key%2Fvalmue%20types%0D%0Avar%20m%20%3D%20new%20Map()%3B%0D%0Am.set(%22hello%22%2C%2042)%3B%0D%0Am.set(s%2C%2034)%3B%0D%0Aconsole.log(m.get(s))%20%2F%2F%2034%3B)
+
+## [Iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+
+Iterator objects enable custom iteration like CLR IEnumerable or Java Iterable.
+This way you can iterate over Array, Map, Set, function arguments etc...
+
+```ts
+let iterable = [['a', 1], ['b', 2], ['c', 3]];
+
+for (let entry of iterable) {
+  console.log(entry);
+}
+// ['a', 1]
+// ['b', 2]
+// ['c', 3]
+
+for (let [key, value] of iterable) {
+  console.log(value);
+}
+// 1
+// 2
+// 3
+```
+
+[Playground Link](https://www.typescriptlang.org/play/#src=let%20iterable%20%3D%20%5B%5B'a'%2C%201%5D%2C%20%5B'b'%2C%202%5D%2C%20%5B'c'%2C%203%5D%5D%3B%0D%0A%0D%0Afor%20(let%20entry%20of%20iterable)%20%7B%0D%0A%20%20console.log(entry)%3B%0D%0A%7D%0D%0A%2F%2F%20%5B'a'%2C%201%5D%0D%0A%2F%2F%20%5B'b'%2C%202%5D%0D%0A%2F%2F%20%5B'c'%2C%203%5D%0D%0A%0D%0Afor%20(let%20%5Bkey%2C%20value%5D%20of%20iterable)%20%7B%0D%0A%20%20console.log(value)%3B%0D%0A%7D%0D%0A%2F%2F%201%0D%0A%2F%2F%202%0D%0A%2F%2F%203)
+
+You can create your on iterator to iterate over, Iteration is based on these duck-typed interfaces:
+
+```ts
+interface IteratorResult {
+  done: boolean;
+  value: any;
+}
+interface Iterator {
+  next(): IteratorResult;
+}
+interface Iterable {
+  [Symbol.iterator](): Iterator
+}
+```
+
+Iterator does not have to iterate a finite value. The typical example is a Fibonacci sequence:
+
+```ts
+let fibonacci = {
+  [Symbol.iterator]() {
+    let pre = 0, cur = 1;
+    return {
+      next() {
+        [pre, cur] = [cur, pre + cur];
+        return { done: false, value: cur }
+      }
+    }
+  }
+}
+
+for (var n of fibonacci) {
+  // truncate the sequence at 1000
+  if (n > 1000)
+    break;
+  console.log(n);
+}
+```
+
+> ⚠️️ Same thing here: For ES5, Typescript does not provide polyfills to iterate over something else than string and array,
+> you need to add them yourself :(
 
 > [More ES6 features here](https://github.com/lukehoban/es6features)

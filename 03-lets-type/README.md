@@ -1,6 +1,6 @@
 # Let's type
 
-We're going to have quick overview of the typing system.
+We're going to have quick overview of the type system.
 
 > You can have a look at the typescript doc on [Basic Types](https://www.typescriptlang.org/docs/handbook/basic-types.html) and [Advanced Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
 
@@ -38,9 +38,9 @@ TypeScript exposes the JavaScript primitives, as well as a couple of extra types
 * `() => any` - the type is a function that returns `any`.
 
 
-## Type Inferencing
+## [Type Inferencing](https://www.typescriptlang.org/docs/handbook/type-inference.html)
 
-[Type inferencing](https://www.typescriptlang.org/docs/handbook/type-inference.html) is used when the type is not provided explicitly. For instance, using `var x = 10`, TypeScript can infer that `x` is a number.
+Type Inferencing is used when the type is not provided explicitly. For instance, using `var x = 10`, TypeScript can infer that `x` is a number.
 
 So if we take the previous example there is a lot of types we can safely remove.
 
@@ -89,7 +89,7 @@ Type assertion is a sort of casting that performs no special checking or restruc
 
 > ⚠️️ `<any>something` can be handy to handle non-typed or wrongly-typed external libs but beware that doing this you might end-up with runtime error that could have been caught at compilation time.
 
-## Classes
+## [Classes](https://www.typescriptlang.org/docs/handbook/classes.html)
 
 Forget the old prototype-based inheritance, since ES2015 JavaScript has object-oriented class-based approach.
 TypeScript allows developers to use these techniques now, and compile them down to JavaScript that works across all major browsers.
@@ -119,7 +119,7 @@ let greeter = new Greeter("world");
 
 > ⚠️️ Private properties and method are not accessible from outside the class _**but they will still be present on the javascript object**_
 
-## Interfaces
+## [Interfaces](https://www.typescriptlang.org/docs/handbook/interfaces.html)
 
 With Interfaces you can type anything more complicated than our basic types, including functions and classes. The syntax is very close to JavaScript object.
 
