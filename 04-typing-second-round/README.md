@@ -101,6 +101,7 @@ class View<T extends IImage> {
 
 new View(new StarWarsImage()).display();
 ```
+[Playground Link](https://goo.gl/DdgtPm)
 
 ## [Abstract classes](http://www.typescriptlang.org/docs/handbook/classes.html)
 
@@ -144,6 +145,7 @@ department.shootLasers();
 department.evilLaugth(); // error: method doesn't exist on declared abstract type
 ```
 
+[Playground Link](https://goo.gl/BeyK0C)
 
 ## [Union Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
 
@@ -184,6 +186,8 @@ A way to avoid this is Union types:
 function padLeft(value: string, padding: string | number) 
 ```
 
+[Playground Link](https://goo.gl/NyBl7W)
+
 Also know that, if we have a value that has a union type, we can only access members that are common to all types in the union!
 
 ```ts
@@ -205,6 +209,8 @@ let pet = getSmallPet();
 pet.layEggs(); // okay
 pet.swim();    // errors
 ```
+
+[Playground Link](https://goo.gl/hfp3Hn)
 
 ## [Decorators](https://www.typescriptlang.org/docs/handbook/decorators.html)
 
@@ -269,6 +275,6 @@ var g = new Jedi("Mace", "Windu");
 console.log(p);
 ```
 
-[Playground link](https://www.typescriptlang.org/play/#src=%40logClass%0D%0Aclass%20Jedi%20%7B%20%0D%0A%0D%0A%20%20public%20name%3A%20string%3B%0D%0A%20%20public%20surname%3A%20string%3B%0D%0A%0D%0A%20%20constructor(name%20%3A%20string%2C%20surname%20%3A%20string)%20%7B%20%0D%0A%20%20%20%20this.name%20%3D%20name%3B%0D%0A%20%20%20%20this.surname%20%3D%20surname%3B%0D%0A%20%20%7D%0D%0A%7D%0D%0A%0D%0A%0D%0Afunction%20logClass(target%3A%20any)%20%7B%0D%0A%20%20%2F%2F%20save%20a%20reference%20to%20the%20original%20constructor%0D%0A%20%20var%20original%20%3D%20target%3B%0D%0A%20%0D%0A%20%20%2F%2F%20a%20utility%20function%20to%20generate%20instances%20of%20a%20class%0D%0A%20%20function%20construct(constructor%2C%20args)%20%7B%0D%0A%20%20%20%20var%20c%20%3A%20any%20%3D%20function%20()%20%7B%0D%0A%20%20%20%20%20%20return%20constructor.apply(this%2C%20args)%3B%0D%0A%20%20%20%20%7D%0D%0A%20%20%20%20c.prototype%20%3D%20constructor.prototype%3B%0D%0A%20%20%20%20return%20new%20c()%3B%0D%0A%20%20%7D%0D%0A%20%0D%0A%20%20%2F%2F%20the%20new%20constructor%20behaviour%0D%0A%20%20var%20f%20%3A%20any%20%3D%20function%20(...args)%20%7B%0D%0A%20%20%20%20console.log(%22New%3A%20%22%20%2B%20original.name)%3B%0D%0A%20%20%20%20return%20construct(original%2C%20args)%3B%0D%0A%20%20%7D%0D%0A%20%0D%0A%20%20%2F%2F%20copy%20prototype%20so%20intanceof%20operator%20still%20works%0D%0A%20%20f.prototype%20%3D%20original.prototype%3B%0D%0A%20%0D%0A%20%20%2F%2F%20return%20new%20constructor%20(will%20override%20original)%0D%0A%20%20return%20f%3B%0D%0A%7D%0D%0A%0D%0Avar%20p%20%3D%20new%20Jedi(%22Anakin%22%2C%20%22Skywalker%22)%3B%0D%0Avar%20g%20%3D%20new%20Jedi(%22Mace%22%2C%20%22Windu%22)%3B%0D%0A%0D%0Aconsole.log(p)%3B)
+[Playground link](https://goo.gl/fl3Kn3)
 
 > ⚠️️ Decorators is an experimental feature and is subject to change in next releases, you need to enable it with the "experimentalDecorators" option.
