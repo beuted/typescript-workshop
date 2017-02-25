@@ -1,0 +1,1 @@
+# Workshop - ES6 killing features

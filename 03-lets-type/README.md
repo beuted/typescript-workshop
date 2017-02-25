@@ -6,7 +6,7 @@ We're going to have quick overview of the type system.
 
 ## Syntax
 
-TypeScript uses postfix type annotations (like scala does) for typing method return and arguments, class properties etc...
+TypeScript uses postfix type annotations (like scala does) for typing `method returns` and `arguments`, `class properties` etc...
 It looks like this:
 
 ```ts
@@ -24,6 +24,8 @@ pushNumberToArray(awesomeArray, 3);
 console.log(arrayLengthStr(awesomeArray));
 pushNumberToArray(awesomeArray, "hey"); // This will raise an error at compilation!
 ```
+
+[Playground Link](https://www.typescriptlang.org/play/#src=function%20pushNumberToArray(arr%3A%20number%5B%5D%2C%20num%3A%20number)%3A%20void%20%7B%0D%0A%20%20arr.push(num)%3B%0D%0A%7D%0D%0A%0D%0Afunction%20arrayLengthStr(arr%3A%20any%5B%5D)%3A%20string%20%7B%0D%0A%20%20return%20%60The%20size%20of%20this%20array%20is%20%24%7Barr.length%7D!%60%3B%0D%0A%7D%0D%0A%0D%0Alet%20awesomeArray%3A%20number%5B%5D%20%3D%20%5B1%2C%202%5D%3B%0D%0Aconsole.log(arrayLengthStr(awesomeArray))%3B%0D%0ApushNumberToArray(awesomeArray%2C%203)%3B%0D%0Aconsole.log(arrayLengthStr(awesomeArray))%3B%0D%0ApushNumberToArray(awesomeArray%2C%20%22hey%22)%3B%20%2F%2F%20This%20will%20raise%20an%20error%20at%20compilation!)
 
 ## Basic Types
 
@@ -85,9 +87,11 @@ let someValue: any = "this is a string";
 let strLength: number = (<string>someValue).length;
 ```
 
+[Playground Link](https://www.typescriptlang.org/play/#src=let%20someValue%3A%20any%20%3D%20%22this%20is%20a%20string%22%3B%0D%0Alet%20strLength%3A%20number%20%3D%20(%3Cstring%3EsomeValue).length%3B%20)
+
 Type assertion is a sort of casting that performs no special checking or restructuring of data. It is a way to tell the compilator "trust me, I know what I’m doing.".
 
-> ⚠️️ `<any>something` can be handy to handle non-typed or wrongly-typed external libs but beware that doing this you might end-up with runtime error that could have been caught at compilation time.
+> ⚠️️ `<any>something` can be handy to handle non-typed or wrongly-typed external libs but beware, doing this you might end-up with runtime error that could have been caught at compilation time.
 
 ## [Classes](https://www.typescriptlang.org/docs/handbook/classes.html)
 
@@ -115,9 +119,11 @@ class Greeter {
 let greeter = new Greeter("world");
 ```
 
+[Playground Link](https://www.typescriptlang.org/play/#src=class%20Greeter%20%7B%0D%0A%20%20%20%20private%20readonly%20name%3A%20string%3B%0D%0A%0D%0A%20%20%20%20constructor(name%3A%20string)%20%7B%0D%0A%20%20%20%20%20%20%20%20this.name%20%3D%20name%3B%0D%0A%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20public%20greet()%20%7B%0D%0A%20%20%20%20%20%20%20%20return%20%22Hello%2C%20%22%20%2B%20this.name%3B%0D%0A%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20public%20static%20Greet(name%3A%20string)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20return%20%22Hello%2C%20%22%20%2B%20this.name%3B%0D%0A%20%20%20%20%7D%0D%0A%7D%0D%0A%0D%0Alet%20greeter%20%3D%20new%20Greeter(%22world%22)%3B)
+
 > ⚠️️ properties and method on classes are _**Public by default**_
 
-> ⚠️️ Private properties and method are not accessible from outside the class _**but they will still be present on the javascript object**_
+> ⚠️️ Private properties and method are theorically not accessible from outside the class _**but they will still be present on the javascript object**_
 
 ## [Interfaces](https://www.typescriptlang.org/docs/handbook/interfaces.html)
 
@@ -145,6 +151,8 @@ class Point implements IPoint {
     }
 }
 ```
+
+[Playground Link](https://www.typescriptlang.org/play/#src=interface%20IPoint%20%7B%0D%0A%20%20x%3A%20number%2C%0D%0A%20%20y%3A%20number%2C%0D%0A%20%20move(p%3A%20IPoint)%3A%20void%0D%0A%7D%0D%0A%0D%0Alet%20origin%3A%20IPoint%20%3D%20%7B%0D%0A%20%20%20%20x%3A%200%2C%0D%0A%20%20%20%20y%3A%200%2C%0D%0A%20%20%20%20move%3A%20function%20(point%3A%20IPoint)%20%7B%20this.x%20%2B%3D%20point.x%3B%20this.y%20%2B%3D%20point.y%3B%20%7D%0D%0A%7D%3B%0D%0A%0D%0Aclass%20Point%20implements%20IPoint%20%7B%0D%0A%20%20%20%20public%20x%3A%20number%3B%0D%0A%20%20%20%20public%20y%3A%20number%3B%0D%0A%20%20%20%20public%20move(point%3A%20IPoint)%20%7B%0D%0A%20%20%20%20%20%20%20%20this.x%20%2B%3D%20point.x%3B%0D%0A%20%20%20%20%20%20%20%20this.y%20%2B%3D%20point.y%3B%0D%0A%20%20%20%20%7D%0D%0A%7D)
 
 You can also type dictionnaries with Interfaces
 
@@ -193,7 +201,10 @@ let tom: Animal = new Horse("Tommy the Palomino");
 sam.move();
 tom.move(34);
 ```
-Derived classes that contain constructor functions must call super() which will execute the constructor function
+
+[Playground Link](https://www.typescriptlang.org/play/#src=class%20Animal%20%7B%0D%0A%20%20%20%20protected%20readonly%20name%3A%20string%3B%0D%0A%0D%0A%20%20%20%20constructor(theName%3A%20string)%20%7B%20this.name%20%3D%20theName%3B%20%7D%0D%0A%20%20%20%20move(distanceInMeters%3A%20number%20%3D%200)%20%7B%0D%0A%20%20%20%20%20%20%20%20console.log(%60%24%7Bthis.name%7D%20moved%20%24%7BdistanceInMeters%7Dm.%60)%3B%0D%0A%20%20%20%20%7D%0D%0A%7D%0D%0A%0D%0Aclass%20Snake%20extends%20Animal%20%7B%0D%0A%20%20%20%20constructor(name%3A%20string)%20%7B%20super(name)%3B%20%7D%0D%0A%20%20%20%20move(distanceInMeters%20%3D%205)%20%7B%0D%0A%20%20%20%20%20%20%20%20console.log(%22Slithering...%22)%3B%0D%0A%20%20%20%20%20%20%20%20super.move(distanceInMeters)%3B%0D%0A%20%20%20%20%7D%0D%0A%7D%0D%0A%0D%0Aclass%20Horse%20extends%20Animal%20%7B%0D%0A%20%20%20%20constructor(name%3A%20string)%20%7B%20super(name)%3B%20%7D%0D%0A%20%20%20%20move(distanceInMeters%20%3D%2045)%20%7B%0D%0A%20%20%20%20%20%20%20%20console.log(%22Galloping...%22)%3B%0D%0A%20%20%20%20%20%20%20%20super.move(distanceInMeters)%3B%0D%0A%20%20%20%20%7D%0D%0A%7D%0D%0A%0D%0Alet%20sam%20%3D%20new%20Snake(%22Sammy%20the%20Python%22)%3B%0D%0Alet%20tom%3A%20Animal%20%3D%20new%20Horse(%22Tommy%20the%20Palomino%22)%3B%0D%0A%0D%0Asam.move()%3B%0D%0Atom.move(34)%3B)
+
+Derived classes that contains constructor functions must call super() which will execute the constructor function
 on the base class.
 
 The example also shows how to override methods in the base class with methods that are specialized for the

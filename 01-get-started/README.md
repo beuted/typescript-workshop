@@ -1,12 +1,12 @@
 # Get started with Typescript
 
-This workshop aim to give you a tour of the Typescript language. Trying to show you why it was developed and what it can offer you over javascript.
+This workshop aims to give you a tour of the Typescript language. Trying to show you why it was developed and what it can offer you over javascript.
 
-After a quick global overview of the Typescript language we will start seeing different feature of the language along with short exercices just so you can play around with them.
+After a quick global overview of the Typescript language we will start seeing different feature of the language along with short exercises just so you can play around with them.
 
 # Setting up you environment
 
-###  Editor
+### Editor
 
 I recommend you to download [Visual Code](https://code.visualstudio.com/) that works really well.
 I've also tested the Sublime Text Plugin but it's not so great when projects are consequent.

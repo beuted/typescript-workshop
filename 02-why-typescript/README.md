@@ -1,6 +1,6 @@
 # Why Typescript
 
-There are a lot of options available to frontend devs today: ES5, ES6 (Babel), TypeScript, Dart, CoffeeScript, PureScript, Elm, etc.. So why TypeScript?
+There are a lot of options available to front-end devs today: ES5, ES6 (Babel), TypeScript, Dart, CoffeeScript, PureScript, Elm, etc.. So why TypeScript?
 
 ## What is typescript ?
 
@@ -8,7 +8,7 @@ It has been created and maintained by Microsoft since 2010 (released in 2012). A
 
 Typescript aim to:
 * Being a superset of ES2015 (Not break compatibility with old JS versions)
-* Add _optionnal_ static type support
+* Add _optional_ static type support
 
 Since they needed ES2015 features such as classes it naturally became a transpiler and it is now one of the Best Javascript transpiler out there with [Babel](https://babeljs.io/) his advantage being a better compiled code readability in my opinion.
 
@@ -20,10 +20,10 @@ And it has already been adopted [by many](https://github.com/search?p=2&q=stars%
 ## Pros and Cons
 
 ✔️️ **Latest ES2015 _(ES6)_ features** some ES2016 features, _(even nodejs is not up to date with all ES6 features)_<br>
-✔️️ **Static analyse of code** catching of errors, highlighting, discoverability, autocomplete & refactoring in IDE<br>
+✔️️ **Static analyze of code** catching of errors, highlighting, discoverability, autocomplete & refactoring in IDE<br>
 ✔️️ **Structuring mechanism** for large pieces of code, the good old _class-based object-oriented programming_<br>
 ✔️️ **Will compile ES5 js** Allowing you to gradually upgrade your old JS code (Compare to Elm and PureScript)
 
 ❌ **Require compilation** Making it a bit slower for live reloading and watches<br>
 ❌ **External libs definition variable** Not all libs have it and you might have to leave them untyped<br>
-❌ **Typescript is not magic** Can create an illusion of safty don't forget that it's still JS with all the weird things we love & hate<br>
+❌ **Typescript is not magic** Can create an illusion of safety don't forget that it's still JS with all the weird things we love & hate<br>

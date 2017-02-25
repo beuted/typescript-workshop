@@ -31,7 +31,7 @@ What does it return ?
 
 Let's try it and understand what happens: [Playground link](https://www.typescriptlang.org/play/#src=let%20deck%20%3D%20%7B%0D%0A%20%20%20%20suits%3A%20%5B%22hearts%22%2C%20%22spades%22%2C%20%22clubs%22%2C%20%22diamonds%22%5D%2C%0D%0A%20%20%20%20cards%3A%20Array(52)%2C%0D%0A%20%20%20%20createCardPicker%3A%20function()%20%7B%0D%0A%20%20%20%20%20%20%20%20return%20function()%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20pickedCard%20%3D%20Math.floor(Math.random()%20*%2052)%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20pickedSuit%20%3D%20Math.floor(pickedCard%20%2F%2013)%3B%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%7Bsuit%3A%20this.suits%5BpickedSuit%5D%2C%20card%3A%20pickedCard%20%25%2013%7D%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%7D%0D%0A%7D%0D%0A%0D%0Alet%20cardPicker%20%3D%20deck.createCardPicker()%3B%0D%0Alet%20pickedCard%20%3D%20cardPicker()%3B%0D%0A%0D%0Aalert(%22card%3A%20%22%20%2B%20pickedCard.card%20%2B%20%22%20of%20%22%20%2B%20pickedCard.suit)%3B)
 
-Try replacing `function()` by `() =>`
+Try replacing "`function()`" by "`() =>`"
 
 ## [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) and [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
 
@@ -95,26 +95,44 @@ console.log(`Hello ${name}, how are you ${time}?`);
 Destructuring allows binding using pattern matching, with support for matching arrays and objects. Destructuring is fail-soft,
 similar to standard object lookup foo["bar"], producing undefined values when not found.
 
-In practice this is helpful to create Tuples, but I can't think of another use that would not be too confusing to read IMO.
+In practice this is helpful to create Tuples, or exchanging value of 2 variables.
+
+Typescript also allows you to use the Rest and Spread properties for object and arrays.
 
 ```ts
 var a, b, rest;
 [a, b] = [10, 20];
-console.log(a); // 10
-console.log(b); // 20
+a; // 10
+b; // 20
+```
 
+Typescript also allows you to use the Rest and Spread properties for object and arrays.
+
+```ts
+// Here z take the Rest of the assigned object
+let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
+x; // 1
+y; // 2
+z; // { a: 3, b: 4 }
+
+// Here z is spread to be assigned to n
+let n = { x, y, ...z };
+n; // { x: 1, y: 2, a: 3, b: 4 }
+
+// Works with arrays too
 [a, b, ...rest] = [10, 20, 30, 40, 50];
-console.log(a); // 10
-console.log(b); // 20
-console.log(rest); // [30, 40, 50]
+a; // 10
+b; // 20
+rest; // [30, 40, 50]
 
 var o = {p: 42, q: true};
 var {p, q} = o;
-console.log(p); // 42
-console.log(q); // true
+p; // 42
+q; // true
 ```
 
-[Playground Link](https://www.typescriptlang.org/play/#src=var%20a%2C%20b%2C%20rest%3B%0D%0A%5Ba%2C%20b%5D%20%3D%20%5B10%2C%2020%5D%3B%0D%0Aconsole.log(a)%3B%20%2F%2F%2010%0D%0Aconsole.log(b)%3B%20%2F%2F%2020%0D%0A%0D%0A%5Ba%2C%20b%2C%20...rest%5D%20%3D%20%5B10%2C%2020%2C%2030%2C%2040%2C%2050%5D%3B%0D%0Aconsole.log(a)%3B%20%2F%2F%2010%0D%0Aconsole.log(b)%3B%20%2F%2F%2020%0D%0Aconsole.log(rest)%3B%20%2F%2F%20%5B30%2C%2040%2C%2050%5D%0D%0A%0D%0Avar%20o%20%3D%20%7Bp%3A%2042%2C%20q%3A%20true%7D%3B%0D%0Avar%20%7Bp%2C%20q%7D%20%3D%20o%3B%0D%0Aconsole.log(p)%3B%20%2F%2F%2042%0D%0Aconsole.log(q)%3B%20%2F%2F%20true)
+[Playground Link](https://www.typescriptlang.org/play/#src=var%20a%2C%20b%2C%20rest%3B%0D%0A%5Ba%2C%20b%5D%20%3D%20%5B10%2C%2020%5D%3B%0D%0Aa%3B%20%2F%2F%2010%0D%0Ab%3B%20%2F%2F%2020%0D%0A%0D%0A%2F%2F%20Here%20z%20take%20the%20Rest%20of%20the%20assigned%20object%0D%0Alet%20%7B%20x%2C%20y%2C%20...z%20%7D%20%3D%20%7B%20x%3A%201%2C%20y%3A%202%2C%20a%3A%203%2C%20b%3A%204%20%7D%3B%0D%0Ax%3B%20%2F%2F%201%0D%0Ay%3B%20%2F%2F%202%0D%0Az%3B%20%2F%2F%20%7B%20a%3A%203%2C%20b%3A%204%20%7D%0D%0A%0D%0A%2F%2F%20Here%20z%20is%20spread%20to%20be%20assigned%20to%20n%0D%0Alet%20n%20%3D%20%7B%20x%2C%20y%2C%20...z%20%7D%3B%0D%0An%3B%20%2F%2F%20%7B%20x%3A%201%2C%20y%3A%202%2C%20a%3A%203%2C%20b%3A%204%20%7D%0D%0A%0D%0A%2F%2F%20Works%20with%20arrays%20too%0D%0A%5Ba%2C%20b%2C%20...rest%5D%20%3D%20%5B10%2C%2020%2C%2030%2C%2040%2C%2050%5D%3B%0D%0Aa%3B%20%2F%2F%2010%0D%0Ab%3B%20%2F%2F%2020%0D%0Arest%3B%20%2F%2F%20%5B30%2C%2040%2C%2050%5D%0D%0A%0D%0Avar%20o%20%3D%20%7Bp%3A%2042%2C%20q%3A%20true%7D%3B%0D%0Avar%20%7Bp%2C%20q%7D%20%3D%20o%3B%0D%0Ap%3B%20%2F%2F%2042%0D%0Aq%3B%20%2F%2F%20true)
+
 
 ## [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
@@ -139,6 +157,35 @@ myFirstPromise.then(successMessage => {
     console.log(":( " + errorMessage);
 });
 ```
+
+[Playground Link](https://www.typescriptlang.org/play/#src=var%20myFirstPromise%20%3D%20new%20Promise(function(resolve%2C%20reject)%7B%0D%0A%20%20%20%20%2F%2FWe%20call%20resolve(...)%20when%20what%20we%20were%20doing%20async%20succeeded%2C%20and%20reject(...)%20when%20it%20failed.%0D%0A%20%20%20%20%2F%2FIn%20this%20example%2C%20we%20use%20setTimeout(...)%20to%20simulate%20async%20code.%20%0D%0A%20%20%20%20%2F%2FIn%20reality%2C%20you%20will%20probabally%20using%20something%20like%20XHR%20or%20an%20HTML5%20API.%0D%0A%20%20%20%20setTimeout(()%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20resolve(%22Success!%22)%3B%20%2F%2FYay!%20Everything%20went%20well!%0D%0A%20%20%20%20%7D%2C%20250)%3B%0D%0A%7D)%3B%0D%0A%0D%0AmyFirstPromise.then(successMessage%20%3D%3E%20%7B%0D%0A%20%20%20%20%2F%2FsuccessMessage%20is%20whatever%20we%20passed%20in%20the%20resolve(...)%20function%20above.%0D%0A%20%20%20%20%2F%2FIt%20doesn't%20have%20to%20be%20a%20string%2C%20but%20if%20it%20is%20only%20a%20succeed%20message%2C%20it%20probably%20will%20be.%0D%0A%20%20%20%20console.log(%22Yay!%20%22%20%2B%20successMessage)%3B%0D%0A%7D).catch(errorMessage%20%3D%3E%20%7B%0D%0A%20%20%20%20%2F%2FerrorMessage%20is%20whatever%20we%20passed%20in%20the%20reject(...)%20function%20above.%0D%0A%20%20%20%20console.log(%22%3A(%20%22%20%2B%20errorMessage)%3B%0D%0A%7D)%3B)
+
+## [async/await](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-1.html)
+
+`async`/`await` is a new feature in ECMAScript 2017 that allows users to write code around promises without needing to
+use callbacks. `async` functions can be written in a style that looks synchronous, but acts asynchronously, using the await keyword.
+
+```ts
+function delay(ms: number) {
+    return new Promise<void>(function(resolve) {
+        setTimeout(resolve, ms);
+    });
+}
+
+async function asyncAwait() {
+    console.log("Knock, knock!");
+
+    await delay(1000); // Won't block other code to be executed!
+    console.log("Who's there?");
+
+    await delay(1000);
+    console.log("async/await!");
+}
+
+asyncAwait();
+```
+
+[Playground Link](https://www.typescriptlang.org/play/#src=function%20delay(ms%3A%20number)%20%7B%0D%0A%20%20%20%20return%20new%20Promise%3Cvoid%3E(function(resolve)%20%7B%0D%0A%20%20%20%20%20%20%20%20setTimeout(resolve%2C%20ms)%3B%0D%0A%20%20%20%20%7D)%3B%0D%0A%7D%0D%0A%0D%0Aasync%20function%20asyncAwait()%20%7B%0D%0A%20%20%20%20console.log(%22Knock%2C%20knock!%22)%3B%0D%0A%0D%0A%20%20%20%20await%20delay(1000)%3B%0D%0A%20%20%20%20console.log(%22Who's%20there%3F%22)%3B%0D%0A%0D%0A%20%20%20%20await%20delay(1000)%3B%0D%0A%20%20%20%20console.log(%22async%2Fawait!%22)%3B%0D%0A%7D%0D%0A%0D%0AasyncAwait()%3B)
 
 ## [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) and [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
 
@@ -165,7 +212,7 @@ console.log(m.get(s)) // 34;
 
 ## [Iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
 
-Iterator objects enable custom iteration like CLR IEnumerable or Java Iterable.
+Iterator objects enable custom iteration like C# IEnumerable or Java Iterable.
 This way you can iterate over Array, Map, Set, function arguments etc...
 
 ```ts
@@ -188,7 +235,7 @@ for (let [key, value] of iterable) {
 
 [Playground Link](https://www.typescriptlang.org/play/#src=let%20iterable%20%3D%20%5B%5B'a'%2C%201%5D%2C%20%5B'b'%2C%202%5D%2C%20%5B'c'%2C%203%5D%5D%3B%0D%0A%0D%0Afor%20(let%20entry%20of%20iterable)%20%7B%0D%0A%20%20console.log(entry)%3B%0D%0A%7D%0D%0A%2F%2F%20%5B'a'%2C%201%5D%0D%0A%2F%2F%20%5B'b'%2C%202%5D%0D%0A%2F%2F%20%5B'c'%2C%203%5D%0D%0A%0D%0Afor%20(let%20%5Bkey%2C%20value%5D%20of%20iterable)%20%7B%0D%0A%20%20console.log(value)%3B%0D%0A%7D%0D%0A%2F%2F%201%0D%0A%2F%2F%202%0D%0A%2F%2F%203)
 
-You can create your on iterator to iterate over, Iteration is based on these duck-typed interfaces:
+You can create your own iterator to iterate over. Iteration is based on these interfaces:
 
 ```ts
 interface IteratorResult {
@@ -228,5 +275,7 @@ for (var n of fibonacci) {
 
 > ⚠️️ Same thing here: For ES5, Typescript does not provide polyfills to iterate over something else than string and array,
 > you need to add them yourself :(
+
+> More on Symbols [here](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
 
 > [More ES6 features here](https://github.com/lukehoban/es6features)
