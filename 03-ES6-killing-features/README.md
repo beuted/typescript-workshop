@@ -1,6 +1,6 @@
 # ES6 killer features you can use in Typescript
 
-## `this` and [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+## 1. this and [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 In JavaScript, this is a variable that’s set when a function is called. This makes it a very powerful and flexible feature, but it comes at the cost of always
 having to know about the context that a function is executing in. This is notoriously confusing, especially when returning a function or passing a function as an argument.
@@ -33,7 +33,7 @@ Let's try it and understand what happens: [Playground link](https://www.typescri
 
 Try replacing "`function()`" by "`() =>`"
 
-## [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) and [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
+## 2. [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) and [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
 
 `let` is the new var but it is block scoped like you expect it to be :)
 
@@ -70,7 +70,7 @@ MY_FAV = 20;
 
 [Playground Link](https://www.typescriptlang.org/play/#src=%2F%2F%20define%20MY_FAV%20as%20a%20constant%20and%20give%20it%20the%20value%207%0D%0Aconst%20MY_FAV%20%3D%207%3B%0D%0A%0D%0A%2F%2F%20this%20will%20throw%20an%20error%0D%0AMY_FAV%20%3D%2020%3B)
 
-## Template strings
+## 3. Template strings
 
 Template strings provide syntactic sugar for constructing strings. This is similar to string interpolation features in Perl, Python and more
 
@@ -90,7 +90,7 @@ console.log(`Hello ${name}, how are you ${time}?`);
 
 [Playground Link](https://www.typescriptlang.org/play/#src=%2F%2F%20Basic%20literal%20string%20creation%0D%0Aconsole.log(%60In%20JavaScript%20'%5Cn'%20is%20a%20line-feed.%60)%3B%0D%0A%0D%0A%2F%2F%20Multiline%20strings%0D%0Aconsole.log(%60In%20JavaScript%20this%20is%0D%0A%20not%20legal.%60)%3B%0D%0A%0D%0A%2F%2F%20String%20interpolation%0D%0Avar%20name%20%3D%20%22Bob%22%3B%0D%0Avar%20time%20%3D%20%22today%22%3B%0D%0Aconsole.log(%60Hello%20%24%7Bname%7D%2C%20how%20are%20you%20%24%7Btime%7D%3F%60)%3B)
 
-## [Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+## 4. [Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 Destructuring allows binding using pattern matching, with support for matching arrays and objects. Destructuring is fail-soft,
 similar to standard object lookup foo["bar"], producing undefined values when not found.
@@ -134,7 +134,7 @@ q; // true
 [Playground Link](https://www.typescriptlang.org/play/#src=var%20a%2C%20b%2C%20rest%3B%0D%0A%5Ba%2C%20b%5D%20%3D%20%5B10%2C%2020%5D%3B%0D%0Aa%3B%20%2F%2F%2010%0D%0Ab%3B%20%2F%2F%2020%0D%0A%0D%0A%2F%2F%20Here%20z%20take%20the%20Rest%20of%20the%20assigned%20object%0D%0Alet%20%7B%20x%2C%20y%2C%20...z%20%7D%20%3D%20%7B%20x%3A%201%2C%20y%3A%202%2C%20a%3A%203%2C%20b%3A%204%20%7D%3B%0D%0Ax%3B%20%2F%2F%201%0D%0Ay%3B%20%2F%2F%202%0D%0Az%3B%20%2F%2F%20%7B%20a%3A%203%2C%20b%3A%204%20%7D%0D%0A%0D%0A%2F%2F%20Here%20z%20is%20spread%20to%20be%20assigned%20to%20n%0D%0Alet%20n%20%3D%20%7B%20x%2C%20y%2C%20...z%20%7D%3B%0D%0An%3B%20%2F%2F%20%7B%20x%3A%201%2C%20y%3A%202%2C%20a%3A%203%2C%20b%3A%204%20%7D%0D%0A%0D%0A%2F%2F%20Works%20with%20arrays%20too%0D%0A%5Ba%2C%20b%2C%20...rest%5D%20%3D%20%5B10%2C%2020%2C%2030%2C%2040%2C%2050%5D%3B%0D%0Aa%3B%20%2F%2F%2010%0D%0Ab%3B%20%2F%2F%2020%0D%0Arest%3B%20%2F%2F%20%5B30%2C%2040%2C%2050%5D%0D%0A%0D%0Avar%20o%20%3D%20%7Bp%3A%2042%2C%20q%3A%20true%7D%3B%0D%0Avar%20%7Bp%2C%20q%7D%20%3D%20o%3B%0D%0Ap%3B%20%2F%2F%2042%0D%0Aq%3B%20%2F%2F%20true)
 
 
-## [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+## 5. [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 The Promise object is used for asynchronous computations. A Promise represents a value which may be available now, or in the future, or never.
 
@@ -158,9 +158,9 @@ myFirstPromise.then(successMessage => {
 });
 ```
 
-[Playground Link](https://www.typescriptlang.org/play/#src=var%20myFirstPromise%20%3D%20new%20Promise(function(resolve%2C%20reject)%7B%0D%0A%20%20%20%20%2F%2FWe%20call%20resolve(...)%20when%20what%20we%20were%20doing%20async%20succeeded%2C%20and%20reject(...)%20when%20it%20failed.%0D%0A%20%20%20%20%2F%2FIn%20this%20example%2C%20we%20use%20setTimeout(...)%20to%20simulate%20async%20code.%20%0D%0A%20%20%20%20%2F%2FIn%20reality%2C%20you%20will%20probabally%20using%20something%20like%20XHR%20or%20an%20HTML5%20API.%0D%0A%20%20%20%20setTimeout(()%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20resolve(%22Success!%22)%3B%20%2F%2FYay!%20Everything%20went%20well!%0D%0A%20%20%20%20%7D%2C%20250)%3B%0D%0A%7D)%3B%0D%0A%0D%0AmyFirstPromise.then(successMessage%20%3D%3E%20%7B%0D%0A%20%20%20%20%2F%2FsuccessMessage%20is%20whatever%20we%20passed%20in%20the%20resolve(...)%20function%20above.%0D%0A%20%20%20%20%2F%2FIt%20doesn't%20have%20to%20be%20a%20string%2C%20but%20if%20it%20is%20only%20a%20succeed%20message%2C%20it%20probably%20will%20be.%0D%0A%20%20%20%20console.log(%22Yay!%20%22%20%2B%20successMessage)%3B%0D%0A%7D).catch(errorMessage%20%3D%3E%20%7B%0D%0A%20%20%20%20%2F%2FerrorMessage%20is%20whatever%20we%20passed%20in%20the%20reject(...)%20function%20above.%0D%0A%20%20%20%20console.log(%22%3A(%20%22%20%2B%20errorMessage)%3B%0D%0A%7D)%3B%20)
+[Playground Link](goo.gl/Wg7eX2)
 
-## [async/await](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-1.html)
+## 6. [async/await](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-1.html)
 
 `async`/`await` is a new feature in ECMAScript 2017 that allows users to write code around promises without needing to
 use callbacks. `async` functions can be written in a style that looks synchronous, but acts asynchronously, using the await keyword.
@@ -187,7 +187,7 @@ asyncAwait();
 
 [Playground Link](https://www.typescriptlang.org/play/#src=function%20delay(ms%3A%20number)%20%7B%0D%0A%20%20%20%20return%20new%20Promise%3Cvoid%3E(function(resolve)%20%7B%0D%0A%20%20%20%20%20%20%20%20setTimeout(resolve%2C%20ms)%3B%0D%0A%20%20%20%20%7D)%3B%0D%0A%7D%0D%0A%0D%0Aasync%20function%20asyncAwait()%20%7B%0D%0A%20%20%20%20console.log(%22Knock%2C%20knock!%22)%3B%0D%0A%0D%0A%20%20%20%20await%20delay(1000)%3B%0D%0A%20%20%20%20console.log(%22Who's%20there%3F%22)%3B%0D%0A%0D%0A%20%20%20%20await%20delay(1000)%3B%0D%0A%20%20%20%20console.log(%22async%2Fawait!%22)%3B%0D%0A%7D%0D%0A%0D%0AasyncAwait()%3B)
 
-## [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) and [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+## 7. [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) and [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
 
 Efficient data structures for common algorithms!
 
@@ -210,7 +210,7 @@ console.log(m.get(s)) // 34;
 
 [Playground Link](https://www.typescriptlang.org/play/#src=%2F%2F%20Sets%0D%0Avar%20s%20%3D%20new%20Set()%3B%0D%0As.add(%22hello%22).add(%22goodbye%22).add(%22hello%22)%3B%0D%0Aconsole.log(s.size)%20%2F%2F%202%3B%0D%0Aconsole.log(s.has(%22hello%22))%20%2F%2F%20true%3B%0D%0A%0D%0A%2F%2F%20Maps%20-%20keys%20can%20be%20anything%2C%20but%20Typescript%20will%20help%20us%20restrict%20key%2Fvalmue%20types%0D%0Avar%20m%20%3D%20new%20Map()%3B%0D%0Am.set(%22hello%22%2C%2042)%3B%0D%0Am.set(s%2C%2034)%3B%0D%0Aconsole.log(m.get(s))%20%2F%2F%2034%3B)
 
-## [Iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+## 8. [Iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
 
 Iterator objects enable custom iteration like C# IEnumerable or Java Iterable.
 This way you can iterate over Array, Map, Set, function arguments etc...
