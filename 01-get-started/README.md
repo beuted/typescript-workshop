@@ -10,7 +10,7 @@ After a quick global overview of the Typescript language we will start seeing di
 
 I recommend you to download [Visual Code](https://code.visualstudio.com/) that works really well.
 I've also tested the Sublime Text Plugin but it's not so great when projects are consequent.
-WebStorm (By Resharper/IntelliJ team) is probably a great tool also, especially if you come from the java world, but I never had the chance to test it.
+WebStorm (By Resharper/IntelliJ team) is probably a great tool also, especially if you come from the java world, but I never really tried it.
 
 ### Compilation
 
