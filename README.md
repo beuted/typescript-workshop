@@ -1,4 +1,5 @@
-# typescript-workshop
+# Typescript Workshop
+
 Repository with basic typescript lessons and exercices aiming at presenting typescript to ts-newbies
 
 ## Ressources

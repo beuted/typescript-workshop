@@ -29,7 +29,7 @@ alert("card: " + pickedCard.card + " of " + pickedCard.suit);
 
 What does it return ?
 
-Let's try it and understand what happens: [Playground link](https://www.typescriptlang.org/play/#src=let%20deck%20%3D%20%7B%0D%0A%20%20%20%20suits%3A%20%5B%22hearts%22%2C%20%22spades%22%2C%20%22clubs%22%2C%20%22diamonds%22%5D%2C%0D%0A%20%20%20%20cards%3A%20Array(52)%2C%0D%0A%20%20%20%20createCardPicker%3A%20function()%20%7B%0D%0A%20%20%20%20%20%20%20%20return%20function()%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20pickedCard%20%3D%20Math.floor(Math.random()%20*%2052)%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20pickedSuit%20%3D%20Math.floor(pickedCard%20%2F%2013)%3B%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%7Bsuit%3A%20this.suits%5BpickedSuit%5D%2C%20card%3A%20pickedCard%20%25%2013%7D%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%7D%0D%0A%7D%0D%0A%0D%0Alet%20cardPicker%20%3D%20deck.createCardPicker()%3B%0D%0Alet%20pickedCard%20%3D%20cardPicker()%3B%0D%0A%0D%0Aalert(%22card%3A%20%22%20%2B%20pickedCard.card%20%2B%20%22%20of%20%22%20%2B%20pickedCard.suit)%3B)
+Let's try it and understand what happens: [Playground link](https://goo.gl/hSy1md)
 
 Try replacing "`function()`" by "`() =>`"
 
@@ -185,7 +185,7 @@ async function asyncAwait() {
 asyncAwait();
 ```
 
-[Playground Link](https://www.typescriptlang.org/play/#src=function%20delay(ms%3A%20number)%20%7B%0D%0A%20%20%20%20return%20new%20Promise%3Cvoid%3E(function(resolve)%20%7B%0D%0A%20%20%20%20%20%20%20%20setTimeout(resolve%2C%20ms)%3B%0D%0A%20%20%20%20%7D)%3B%0D%0A%7D%0D%0A%0D%0Aasync%20function%20asyncAwait()%20%7B%0D%0A%20%20%20%20console.log(%22Knock%2C%20knock!%22)%3B%0D%0A%0D%0A%20%20%20%20await%20delay(1000)%3B%0D%0A%20%20%20%20console.log(%22Who's%20there%3F%22)%3B%0D%0A%0D%0A%20%20%20%20await%20delay(1000)%3B%0D%0A%20%20%20%20console.log(%22async%2Fawait!%22)%3B%0D%0A%7D%0D%0A%0D%0AasyncAwait()%3B)
+[Playground Link](https://goo.gl/9j20iW)
 
 ## 7. [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) and [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
 
@@ -208,7 +208,7 @@ console.log(m.get(s)) // 34;
 > ⚠️️ For ES5, Typescript does not provide polyfills for Map and Set, [you need to add them yourself](http://stackoverflow.com/questions/30019542/es6-map-in-typescript/30112075#30112075).
 > They say they will never do (but it works when targetting ES6 obviously)
 
-[Playground Link](https://www.typescriptlang.org/play/#src=%2F%2F%20Sets%0D%0Avar%20s%20%3D%20new%20Set()%3B%0D%0As.add(%22hello%22).add(%22goodbye%22).add(%22hello%22)%3B%0D%0Aconsole.log(s.size)%20%2F%2F%202%3B%0D%0Aconsole.log(s.has(%22hello%22))%20%2F%2F%20true%3B%0D%0A%0D%0A%2F%2F%20Maps%20-%20keys%20can%20be%20anything%2C%20but%20Typescript%20will%20help%20us%20restrict%20key%2Fvalmue%20types%0D%0Avar%20m%20%3D%20new%20Map()%3B%0D%0Am.set(%22hello%22%2C%2042)%3B%0D%0Am.set(s%2C%2034)%3B%0D%0Aconsole.log(m.get(s))%20%2F%2F%2034%3B)
+[Playground Link](https://goo.gl/eVOLqG)
 
 ## 8. [Iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
 
