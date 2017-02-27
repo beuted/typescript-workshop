@@ -225,7 +225,7 @@ a `Horse`, when `tom.move(34)` calls the overriding method in `Horse`:
 > Slithering...
 > Galloping...
 > ```
-> 1.
+> 3.
 > ```
 > Slithering...
 > Sammy the Python moved 5m.
@@ -234,7 +234,7 @@ a `Horse`, when `tom.move(34)` calls the overriding method in `Horse`:
 > ```
 
 
-**WORKSHOP: Exercice 1**
+**✍ WORKSHOP: Exercice 1**
 
 ## Nullable Types & --strictNullChecks
 

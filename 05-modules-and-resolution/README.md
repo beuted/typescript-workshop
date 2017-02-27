@@ -114,3 +114,5 @@ You should use relative imports for your own modules that are guaranteed to main
 
 A non-relative import can be resolved relative to baseUrl, or through path mapping, which we’ll cover below.
 They can also resolve to ambient module declarations. Use non-relative paths when importing any of your external dependencies.
+
+**✍ WORKSHOP: Exercice 1**

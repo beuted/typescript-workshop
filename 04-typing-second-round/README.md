@@ -65,9 +65,9 @@ function logLengthAndReturn<T>(arg: T[]): T[] {
 We can have any number of generic arguments for a function. For example consider the below function.
 
 ```ts
-function printNumberAlphabets<T1,T2>(arg1:T1[], arg2:T2[]): void{
-arg1.forEach((element, index) => {
-    console.log(element, "is", arg2[index]);
+function printNumberAlphabets<T1,T2>(arg1:T1[], arg2:T2[]): void {
+    arg1.forEach((element, index) => {
+        console.log(`${element} is ${arg2[index]}`);
     });
 }
 
@@ -101,7 +101,7 @@ class View<T extends IImage> {
 
     public display() {
         var img = document.createElement("img");
-        img.setAttribute('src', this.linkedObject.getUrl())
+        img.setAttribute("src", this.linkedObject.getUrl())
         document.body.appendChild(img);   
     }
 }
@@ -153,6 +153,8 @@ department.evilLaugth(); // error: method doesn't exist on declared abstract typ
 ```
 
 [Playground Link](https://goo.gl/BeyK0C)
+
+**✍ WORKSHOP: Exercice 1**
 
 ## [Union Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
 

@@ -157,7 +157,7 @@ q; // true
 
 [Playground Link](https://www.typescriptlang.org/play/#src=var%20a%2C%20b%2C%20rest%3B%0D%0A%5Ba%2C%20b%5D%20%3D%20%5B10%2C%2020%5D%3B%0D%0Aa%3B%20%2F%2F%2010%0D%0Ab%3B%20%2F%2F%2020%0D%0A%0D%0A%2F%2F%20Here%20z%20take%20the%20Rest%20of%20the%20assigned%20object%0D%0Alet%20%7B%20x%2C%20y%2C%20...z%20%7D%20%3D%20%7B%20x%3A%201%2C%20y%3A%202%2C%20a%3A%203%2C%20b%3A%204%20%7D%3B%0D%0Ax%3B%20%2F%2F%201%0D%0Ay%3B%20%2F%2F%202%0D%0Az%3B%20%2F%2F%20%7B%20a%3A%203%2C%20b%3A%204%20%7D%0D%0A%0D%0A%2F%2F%20Here%20z%20is%20spread%20to%20be%20assigned%20to%20n%0D%0Alet%20n%20%3D%20%7B%20x%2C%20y%2C%20...z%20%7D%3B%0D%0An%3B%20%2F%2F%20%7B%20x%3A%201%2C%20y%3A%202%2C%20a%3A%203%2C%20b%3A%204%20%7D%0D%0A%0D%0A%2F%2F%20Works%20with%20arrays%20too%0D%0A%5Ba%2C%20b%2C%20...rest%5D%20%3D%20%5B10%2C%2020%2C%2030%2C%2040%2C%2050%5D%3B%0D%0Aa%3B%20%2F%2F%2010%0D%0Ab%3B%20%2F%2F%2020%0D%0Arest%3B%20%2F%2F%20%5B30%2C%2040%2C%2050%5D%0D%0A%0D%0Avar%20o%20%3D%20%7Bp%3A%2042%2C%20q%3A%20true%7D%3B%0D%0Avar%20%7Bp%2C%20q%7D%20%3D%20o%3B%0D%0Ap%3B%20%2F%2F%2042%0D%0Aq%3B%20%2F%2F%20true)
 
-**WORKSHOP: exercice 1**
+**✍ WORKSHOP: exercice 1**
 
 ## 5. [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
@@ -247,7 +247,7 @@ asyncAwait();
 
 [Playground Link](https://goo.gl/9j20iW)
 
-**WORKSHOP: exercice 2**
+**✍ WORKSHOP: exercice 2**
 
 ## 7. [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) and [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
 

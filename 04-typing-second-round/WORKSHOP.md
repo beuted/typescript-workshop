@@ -3,7 +3,7 @@
 * [Use the Typescript playgound to play around](https://www.typescriptlang.org/play)
 * Have a look at the [typescript doc](https://www.typescriptlang.org/docs) when doing these exsercises.
 
-## 2. Abstract & Generic classes
+## 1. Abstract & Generic classes
 
 ```ts
 abstract class Human {
