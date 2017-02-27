@@ -26,7 +26,7 @@ var pickedCard = cardPicker();
 alert("card: " + pickedCard.card + " of " + pickedCard.suit);
 ```
 
-> What does it return ?
+> ⚔ What does it return ?
 > 
 > 1. "card: 12 of hearts"
 > 2. "card: undefined of hearts"
@@ -36,7 +36,7 @@ Let's try it and understand what happens: [Playground link](https://goo.gl/DlBYC
 
 Try replacing "`function()`" by "`() =>`"
 
-> What does it return ?
+> ⚔ What does it return ?
 > 
 > 1. "card: 12 of hearts"
 > 2. "card: undefined of hearts"
@@ -57,7 +57,7 @@ function varTest() {
 }
 ```
 
-> What does it return ?
+> ⚔ What does it return ?
 > 
 > 1. "1", "2"
 > 2. "1", "1"
@@ -74,7 +74,7 @@ function letTest() {
 }
 ```
 
-> What does it return ?
+> ⚔ What does it return ?
 > 
 > 1. "1", "2"
 > 2. "1", "1"
@@ -183,7 +183,7 @@ myFirstPromise.then(successMessage => {
 });
 ```
 
-> What does it return ?
+> ⚔ What does it return ?
 > 
 > 1. `"Yay! Success!"` after 250ms
 > 2. `"Yay! Success!"` right away
@@ -211,7 +211,7 @@ myFirstPromise.then(successMessage => {
 });
 ```
 
-> What does it return ?
+> ⚔ What does it return ?
 > 
 > 1. `":( Oops!"` right away then `"Yay! Success!"` after 250ms
 > 2. `":( Oops!"` after 250ms

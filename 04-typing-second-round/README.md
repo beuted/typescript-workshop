@@ -44,7 +44,7 @@ function reverseArray<T>(arg1:T): T {
 }
 ```
 
-> Will this compile ?
+> ⚔ Will this compile ?
 > 
 > 1. Yeap
 > 2. Nope
@@ -144,15 +144,21 @@ class TieFighter extends Spaceship {
     }
 }
 
-let department: Spaceship; // ok to create a reference to an abstract type
-department = new Spaceship(); // error: cannot create an instance of an abstract class
-department = new TieFighter(); // ok to create and assign a non-abstract subclass
-department.printName();
-department.shootLasers();
-department.evilLaugth(); // error: method doesn't exist on declared abstract type
+let spaceship: Spaceship; // 1
+spaceship = new Spaceship(); // 2
+spaceship = new TieFighter(); // 3
+spaceship.printName(); // 4
+spaceship.shootLasers(); // 5
+spaceship.evilLaugth(); // 6
 ```
 
-[Playground Link](https://goo.gl/BeyK0C)
+> ⚔ Will error be raised, if yes where ?
+>
+> 1. No error raised
+> 2. Error raised at **2**
+> 3. Error raised at **2** and **6**
+
+[Playground Link](https://goo.gl/Lx3YEX)
 
 **✍ WORKSHOP: Exercice 1**
 

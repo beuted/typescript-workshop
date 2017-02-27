@@ -62,7 +62,7 @@ console.log(arrayLengthStr(awesomeArray));
 pushNumberToArray(awesomeArray, 'hey'); // This will raise an error at compilation!
 ```
 
-> Can I safely remove:
+> ⚔ Can I safely remove:
 > 
 > 1. number[]
 > 2. number
@@ -82,7 +82,7 @@ let someValue: any = 1;
 let strLength: number = (<string>someValue).length;
 ```
 
-> Will this raise an Error...
+> ⚔ Will this raise an Error...
 > 
 > 1. ... At compilation time
 > 2. ... At execution time
@@ -211,7 +211,7 @@ subclass. Here both `Snake` and `Horse` create a `move` method that overrides th
 it functionality specific to each class. Note that even though `tom` is declared as an Animal, since its value is
 a `Horse`, when `tom.move(34)` calls the overriding method in `Horse`:
 
-> What will it return ?
+> ⚔ What will it return ?
 > 
 > 1.
 > ```
