@@ -8,30 +8,39 @@ having to know about the context that a function is executing in. This is notori
 Arrow functions (`(arg1, arg2 /* ... */) => { /* ... */ }`) capture the `this` **where the function is created** rather than where it is invoked.
 
 ```ts
-let deck = {
+var deck = {
     suits: ["hearts", "spades", "clubs", "diamonds"],
-    cards: Array(52),
-    createCardPicker: function() {
-        return function() {
-            let pickedCard = Math.floor(Math.random() * 52);
-            let pickedSuit = Math.floor(pickedCard / 13);
+    createCardPicker: function () {
+        return function () {
+            var pickedCard = Math.floor(Math.random() * 13);
+            var pickedSuit = Math.floor(Math.random() * 4);
 
-            return {suit: this.suits[pickedSuit], card: pickedCard % 13};
-        }
+            return { suit: this.suits[pickedSuit], card: pickedCard };
+        };
     }
-}
+};
 
-let cardPicker = deck.createCardPicker();
-let pickedCard = cardPicker();
+var cardPicker = deck.createCardPicker();
+var pickedCard = cardPicker();
 
 alert("card: " + pickedCard.card + " of " + pickedCard.suit);
 ```
 
-What does it return ?
+> What does it return ?
+> 
+> 1. "card: 12 of hearts"
+> 2. "card: undefined of hearts"
+> 3. "card: undefined of undefined"
 
-Let's try it and understand what happens: [Playground link](https://goo.gl/hSy1md)
+Let's try it and understand what happens: [Playground link](https://goo.gl/DlBYCn)
 
 Try replacing "`function()`" by "`() =>`"
+
+> What does it return ?
+> 
+> 1. "card: 12 of hearts"
+> 2. "card: undefined of hearts"
+> 3. "card: undefined of undefined"
 
 ## 2. [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) and [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
 
@@ -41,21 +50,36 @@ Try replacing "`function()`" by "`() =>`"
 function varTest() {
   var x = 1;
   if (true) {
-    var x = 2;  // same variable!
-    console.log(x);  // 2
+    var x = 2;
+    console.log(x);
   }
-  console.log(x);  // 2
+  console.log(x);
 }
+```
 
+> What does it return ?
+> 
+> 1. "1", "2"
+> 2. "1", "1"
+> 3. "2", "2"
+
+```ts
 function letTest() {
   let x = 1;
   if (true) {
-    let x = 2;  // different variable
-    console.log(x);  // 2
+    let x = 2;
+    console.log(x);
   }
-  console.log(x);  // 1
+  console.log(x)
 }
 ```
+
+> What does it return ?
+> 
+> 1. "1", "2"
+> 2. "1", "1"
+> 3. "2", "2"
+
 [Playground Link](https://www.typescriptlang.org/play/#src=function%20varTest()%20%7B%0D%0A%20%20var%20x%20%3D%201%3B%0D%0A%20%20if%20(true)%20%7B%0D%0A%20%20%20%20var%20x%20%3D%202%3B%20%20%2F%2F%20same%20variable!%0D%0A%20%20%20%20console.log(x)%3B%20%20%2F%2F%202%0D%0A%20%20%7D%0D%0A%20%20console.log(x)%3B%20%20%2F%2F%202%0D%0A%7D%0D%0A%0D%0Afunction%20letTest()%20%7B%0D%0A%20%20let%20x%20%3D%201%3B%0D%0A%20%20if%20(true)%20%7B%0D%0A%20%20%20%20let%20x%20%3D%202%3B%20%20%2F%2F%20different%20variable%0D%0A%20%20%20%20console.log(x)%3B%20%20%2F%2F%202%0D%0A%20%20%7D%0D%0A%20%20console.log(x)%3B%20%20%2F%2F%201%0D%0A%7D)
 
 `const` is used to define constants that will throw error if reasigned.
@@ -133,6 +157,7 @@ q; // true
 
 [Playground Link](https://www.typescriptlang.org/play/#src=var%20a%2C%20b%2C%20rest%3B%0D%0A%5Ba%2C%20b%5D%20%3D%20%5B10%2C%2020%5D%3B%0D%0Aa%3B%20%2F%2F%2010%0D%0Ab%3B%20%2F%2F%2020%0D%0A%0D%0A%2F%2F%20Here%20z%20take%20the%20Rest%20of%20the%20assigned%20object%0D%0Alet%20%7B%20x%2C%20y%2C%20...z%20%7D%20%3D%20%7B%20x%3A%201%2C%20y%3A%202%2C%20a%3A%203%2C%20b%3A%204%20%7D%3B%0D%0Ax%3B%20%2F%2F%201%0D%0Ay%3B%20%2F%2F%202%0D%0Az%3B%20%2F%2F%20%7B%20a%3A%203%2C%20b%3A%204%20%7D%0D%0A%0D%0A%2F%2F%20Here%20z%20is%20spread%20to%20be%20assigned%20to%20n%0D%0Alet%20n%20%3D%20%7B%20x%2C%20y%2C%20...z%20%7D%3B%0D%0An%3B%20%2F%2F%20%7B%20x%3A%201%2C%20y%3A%202%2C%20a%3A%203%2C%20b%3A%204%20%7D%0D%0A%0D%0A%2F%2F%20Works%20with%20arrays%20too%0D%0A%5Ba%2C%20b%2C%20...rest%5D%20%3D%20%5B10%2C%2020%2C%2030%2C%2040%2C%2050%5D%3B%0D%0Aa%3B%20%2F%2F%2010%0D%0Ab%3B%20%2F%2F%2020%0D%0Arest%3B%20%2F%2F%20%5B30%2C%2040%2C%2050%5D%0D%0A%0D%0Avar%20o%20%3D%20%7Bp%3A%2042%2C%20q%3A%20true%7D%3B%0D%0Avar%20%7Bp%2C%20q%7D%20%3D%20o%3B%0D%0Ap%3B%20%2F%2F%2042%0D%0Aq%3B%20%2F%2F%20true)
 
+**WORKSHOP: exercice 1**
 
 ## 5. [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
@@ -157,6 +182,41 @@ myFirstPromise.then(successMessage => {
     console.log(":( " + errorMessage);
 });
 ```
+
+> What does it return ?
+> 
+> 1. `"Yay! Success!"` after 250ms
+> 2. `"Yay! Success!"` right away
+> 3. `":( Success!"` after 250ms
+
+```ts
+var myFirstPromise = new Promise(function(resolve, reject){
+    //We call resolve(...) when what we were doing async succeeded, and reject(...) when it failed.
+    //In this example, we use setTimeout(...) to simulate async code. 
+    //In reality, you will probabally using something like XHR or an HTML5 API.
+    setTimeout(() => {
+        resolve("Success!"); //Yay! Everything went well!
+    }, 250);
+
+    reject("Oops!")
+});
+
+myFirstPromise.then(successMessage => {
+    //successMessage is whatever we passed in the resolve(...) function above.
+    //It doesn't have to be a string, but if it is only a succeed message, it probably will be.
+    console.log("Yay! " + successMessage);
+}).catch(errorMessage => {
+    //errorMessage is whatever we passed in the reject(...) function above.
+    console.log(":( " + errorMessage);
+});
+```
+
+> What does it return ?
+> 
+> 1. `":( Oops!"` right away then `"Yay! Success!"` after 250ms
+> 2. `":( Oops!"` after 250ms
+> 3. `":( Oops!"` right away
+
 
 [Playground Link](goo.gl/Wg7eX2)
 
@@ -187,6 +247,8 @@ asyncAwait();
 
 [Playground Link](https://goo.gl/9j20iW)
 
+**WORKSHOP: exercice 2**
+
 ## 7. [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) and [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
 
 Efficient data structures for common algorithms!
@@ -198,7 +260,7 @@ s.add("hello").add("goodbye").add("hello");
 console.log(s.size) // 2;
 console.log(s.has("hello")) // true;
 
-// Maps - keys can be anything, but Typescript will help us restrict key/valmue types
+// Maps - keys can be anything, but Typescript will help us restrict key/value types
 var m = new Map();
 m.set("hello", 42);
 m.set(s, 34);

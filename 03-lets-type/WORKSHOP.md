@@ -8,7 +8,7 @@
 ```ts
 interface IHuman {
     name: string;
-    describe(): void; // console.log the animal name and it's name in a sentence
+    describe(): void; // console.log the human name in a sentence
 }
 
 var freddieMercury: IHuman;

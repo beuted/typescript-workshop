@@ -62,23 +62,11 @@ console.log(arrayLengthStr(awesomeArray));
 pushNumberToArray(awesomeArray, 'hey'); // This will raise an error at compilation!
 ```
 
-_**BONUS:** Let's comment even more types:_
-
-```ts
-function pushNumberToArray(arr/*: number[]*/, num/*: number*/)/*: void*/ {
-  arr.push(num);
-}
-
-function arrayLengthStr(arr: any[])/*: string*/ {
-  return `The size of this array is ${arr.length}!`;
-}
-
-let awesomeArray/*: number[]*/ = [1, 2];
-console.log(arrayLengthStr(awesomeArray));
-pushNumberToArray(awesomeArray, 3);
-console.log(arrayLengthStr(awesomeArray));
-pushNumberToArray(awesomeArray, 'hey'); // Will it raise an Error ?
-```
+> Can I safely remove:
+> 
+> 1. number[]
+> 2. number
+> 3. any[]
 
 ## Type assertion
 
@@ -88,6 +76,17 @@ let strLength: number = (<string>someValue).length;
 ```
 
 [Playground Link](https://www.typescriptlang.org/play/#src=let%20someValue%3A%20any%20%3D%20%22this%20is%20a%20string%22%3B%0D%0Alet%20strLength%3A%20number%20%3D%20(%3Cstring%3EsomeValue).length%3B%20)
+
+```ts
+let someValue: any = 1;
+let strLength: number = (<string>someValue).length;
+```
+
+> Will this raise an Error...
+> 
+> 1. ... At compilation time
+> 2. ... At execution time
+> 3. No error will be raised
 
 Type assertion is a sort of casting that performs no special checking or restructuring of data. It is a way to tell the compilator "trust me, I know what I’m doing.".
 
@@ -108,18 +107,18 @@ class Greeter {
     }
 
     public greet() {
-        return "Hello, " + this.greeting;
+        return "Hello, " + this.name;
     }
 
     public static Greet(name: string) {
-         return "Hello, " + this.greeting;
+         return "Hello, " + name;
     }
 }
 
 let greeter = new Greeter("world");
 ```
 
-[Playground Link](https://goo.gl/Qxmiwx)
+[Playground Link](https://goo.gl/TBn297)
 
 > ⚠️️ properties and method on classes are _**Public by default**_
 
@@ -212,20 +211,38 @@ subclass. Here both `Snake` and `Horse` create a `move` method that overrides th
 it functionality specific to each class. Note that even though `tom` is declared as an Animal, since its value is
 a `Horse`, when `tom.move(34)` calls the overriding method in `Horse`:
 
-```
-Slithering...
-Sammy the Python moved 5m.
-Galloping...
-Tommy the Palomino moved 34m.
-```
+> What will it return ?
+> 
+> 1.
+> ```
+> Sammy the Python moved 5m.
+> Slithering...
+> Tommy the Palomino moved 34m.
+> Galloping...
+> ```
+> 2.
+> ```
+> Slithering...
+> Galloping...
+> ```
+> 1.
+> ```
+> Slithering...
+> Sammy the Python moved 5m.
+> Galloping...
+> Tommy the Palomino moved 34m.
+> ```
+
+
+**WORKSHOP: Exercice 1**
 
 ## Nullable Types & --strictNullChecks
 
-By default, the type checker considers null and undefined assignable to anything because in js null and undefined are valid values
+By default, the type checker considers `null` and `undefined` assignable to anything because in js `null` and `undefined` are valid values
 of every type. having these two "default value" is often a source of issue in js if you don't pay attention and having to check for
 both make the code less readable. For the record the inventor of null, Tony Hoare, calls this his “billion dollar mistake”.
 
-The --strictNullChecks flag fixes this: when you declare a variable, it doesn’t automatically include null or undefined. You can include them explicitly using a union type:
+The `--strictNullChecks` flag fixes this: when you declare a variable, it doesn’t automatically include null or undefined. You can include them explicitly using a union type:
 
 ```ts
 let s = "foo";

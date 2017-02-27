@@ -1,5 +1,10 @@
 # Typing second round
 
+* [Use the Typescript playgound to play around](https://www.typescriptlang.org/play)
+* Have a look at the [typescript doc](https://www.typescriptlang.org/docs) when doing these exsercises.
+
+## 2. Abstract & Generic classes
+
 ```ts
 abstract class Human {
     constructor(public name: string) {}

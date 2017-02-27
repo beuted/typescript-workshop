@@ -30,7 +30,7 @@ This allows users to consume these components and use their own types.
 Let's do a generic function taking an argument logging it and returning it.
 
 ```ts
-function lodAndReturn<T>(arg: T): T {
+function logAndReturn<T>(arg: T): T {
     console.log(arg);
     return arg;
 }
@@ -40,9 +40,16 @@ Now let's do a function reversing an array of any kind
 
 ```ts
 function reverseArray<T>(arg1:T): T {
-        return arg1.reverse();
+    return arg1.reverse();
 }
 ```
+
+> Will this compile ?
+> 
+> 1. Yeap
+> 2. Nope
+> 3. I don't Know
+
 
 This will not work we need to tell typescript that the argument is not "of any kind" but **an array** of any kind.
 

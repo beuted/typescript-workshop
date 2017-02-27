@@ -1,6 +1,8 @@
 # Workshop - ES6 killer features you can use in Typescript
 
-## Destructuring
+* [Use the Typescript playgound to play around](https://www.typescriptlang.org/play)
+
+## 1. Destructuring
 
 ```ts
 function sumAll() {
@@ -21,7 +23,7 @@ console.log('the sum is ' + total);
 1. Rewrite this js code using the destructuring feature (i.e: change function signature to `function sumAll(...numbers) `)
 2. Use `Array.reduce` to sum the numbers [see doc here](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/arguments)
 
-## Promises & async/await
+## 2. Promises & async/await
 
 ```ts
 function getId(cb) {
