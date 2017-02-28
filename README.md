@@ -16,5 +16,4 @@ Repository with basic typescript lessons and exercices aiming at presenting mode
 * https://github.com/Microsoft/TypeScript/wiki/What%27s-new-in-TypeScript
 * https://www.typescriptlang.org/play/index.html
 * https://www.typescriptlang.org/docs/
-
 * Chrome extension used to show README.md can be found here: https://github.com/beuted/md-show
