@@ -1,48 +1,6 @@
 # ES6 killer features you can use in Typescript
 
-## 1. this and [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
-
-In JavaScript, this is a variable that’s set when a function is called. This makes it a very powerful and flexible feature, but it comes at the cost of always
-having to know about the context that a function is executing in. This is notoriously confusing, especially when returning a function or passing a function as an argument.
-
-Arrow functions (`(arg1, arg2 /* ... */) => { /* ... */ }`) capture the `this` **where the function is created** rather than where it is invoked.
-
-```ts
-var deck = {
-    suits: ["hearts", "spades", "clubs", "diamonds"],
-    createCardPicker: function () {
-        return function () {
-            var pickedCard = Math.floor(Math.random() * 13);
-            var pickedSuit = Math.floor(Math.random() * 4);
-
-            return { suit: this.suits[pickedSuit], card: pickedCard };
-        };
-    }
-};
-
-var cardPicker = deck.createCardPicker();
-var pickedCard = cardPicker();
-
-alert("card: " + pickedCard.card + " of " + pickedCard.suit);
-```
-
-> ⚔ What does it return ?
-> 
-> 1. "card: 12 of hearts"
-> 2. "card: undefined of hearts"
-> 3. "card: undefined of undefined"
-
-Let's try it and understand what happens: [Playground link](https://goo.gl/DlBYCn)
-
-Try replacing "`function()`" by "`() =>`"
-
-> ⚔ What does it return ?
-> 
-> 1. "card: 12 of hearts"
-> 2. "card: undefined of hearts"
-> 3. "card: undefined of undefined"
-
-## 2. [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) and [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
+## 1. [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) and [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
 
 `let` is the new var but it is block scoped like you expect it to be :)
 
@@ -93,6 +51,48 @@ MY_FAV = 20;
 ```
 
 [Playground Link](https://www.typescriptlang.org/play/#src=%2F%2F%20define%20MY_FAV%20as%20a%20constant%20and%20give%20it%20the%20value%207%0D%0Aconst%20MY_FAV%20%3D%207%3B%0D%0A%0D%0A%2F%2F%20this%20will%20throw%20an%20error%0D%0AMY_FAV%20%3D%2020%3B)
+
+## 2. this and [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+
+In JavaScript, this is a variable that’s set when a function is called. This makes it a very powerful and flexible feature, but it comes at the cost of always
+having to know about the context that a function is executing in. This is notoriously confusing, especially when returning a function or passing a function as an argument.
+
+Arrow functions (`(arg1, arg2 /* ... */) => { /* ... */ }`) capture the `this` **where the function is created** rather than where it is invoked.
+
+```ts
+var deck = {
+    suits: ["hearts", "spades", "clubs", "diamonds"],
+    createCardPicker: function () {
+        return function () {
+            var pickedCard = Math.floor(Math.random() * 13);
+            var pickedSuit = Math.floor(Math.random() * 4);
+
+            return { suit: this.suits[pickedSuit], card: pickedCard };
+        };
+    }
+};
+
+var cardPicker = deck.createCardPicker();
+var pickedCard = cardPicker();
+
+alert("card: " + pickedCard.card + " of " + pickedCard.suit);
+```
+
+> ⚔ What does it return ?
+> 
+> 1. "card: 12 of hearts"
+> 2. "card: undefined of hearts"
+> 3. "card: undefined of undefined"
+
+Let's try it and understand what happens: [Playground link](https://goo.gl/DlBYCn)
+
+Try replacing "`function()`" by "`() =>`"
+
+> ⚔ What does it return ?
+> 
+> 1. "card: 12 of hearts"
+> 2. "card: undefined of hearts"
+> 3. "card: undefined of undefined"
 
 ## 3. Template strings
 
@@ -170,7 +170,7 @@ var myFirstPromise = new Promise(function(resolve, reject){
     //In reality, you will probabally using something like XHR or an HTML5 API.
     setTimeout(() => {
         resolve("Success!"); //Yay! Everything went well!
-    }, 250);
+    }, 2000);
 });
 
 myFirstPromise.then(successMessage => {
@@ -185,37 +185,164 @@ myFirstPromise.then(successMessage => {
 
 > ⚔ What does it return ?
 > 
-> 1. `"Yay! Success!"` after 250ms
+> 1. `"Yay! Success!"` after 2 seconds
 > 2. `"Yay! Success!"` right away
-> 3. `":( Success!"` after 250ms
+> 3. `":( Success!"` after 2 seconds
 
 ```ts
 var myFirstPromise = new Promise(function(resolve, reject){
-    //We call resolve(...) when what we were doing async succeeded, and reject(...) when it failed.
-    //In this example, we use setTimeout(...) to simulate async code. 
-    //In reality, you will probabally using something like XHR or an HTML5 API.
     setTimeout(() => {
-        resolve("Success!"); //Yay! Everything went well!
-    }, 250);
+        resolve("Success!");
+    }, 2000);
 
-    reject("Oops!")
+    reject("Oops!"); //REJECTION
 });
 
 myFirstPromise.then(successMessage => {
-    //successMessage is whatever we passed in the resolve(...) function above.
-    //It doesn't have to be a string, but if it is only a succeed message, it probably will be.
     console.log("Yay! " + successMessage);
 }).catch(errorMessage => {
-    //errorMessage is whatever we passed in the reject(...) function above.
     console.log(":( " + errorMessage);
 });
 ```
 
 > ⚔ What does it return ?
 > 
-> 1. `":( Oops!"` right away then `"Yay! Success!"` after 250ms
-> 2. `":( Oops!"` after 250ms
+> 1. `":( Oops!"` right away then `"Yay! Success!"` after 2 seconds
+> 2. `":( Oops!"` after 2 seconds
 > 3. `":( Oops!"` right away
+
+
+```ts
+var myFirstPromise = function (message) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(() => {
+            resolve("1 - " + message); //Yay! Everything went well!
+        }, 2000);
+    });
+}
+
+var mySecondPromise = function (message) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(() => {
+            resolve("2 - " + message); //Yay! Everything went well!
+        }, 2000);
+    });
+}
+
+myFirstPromise("hello").then(successMessage => {
+    return mySecondPromise(successMessage);
+}).then(successMessage => {
+    console.log(successMessage)
+}).catch(errorMessage => {
+    console.log(":( " + errorMessage);
+});
+```
+
+> ⚔ What will it log ?
+> 
+> 1. `2 - 1 - hello` after 4 seconds
+> 2. `1 - 2 - hello` after 4 seconds
+> 3. `:( 2 - 1 - hello` after 4 seconds
+
+
+So if I add a `reject()` on the second Promise like I did earlier...
+
+```ts
+var myFirstPromise = function (message) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(() => {
+            resolve("1 - " + message);
+        }, 2000);
+    });
+}
+
+var mySecondPromise = function (message) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(() => {
+            resolve("2 - " + message);
+        }, 2000);
+        reject("Oops!"); // REJECTION D:
+    });
+}
+
+myFirstPromise("hello").then(successMessage => {
+    return mySecondPromise(successMessage);
+}).then(successMessage => {
+    console.log(successMessage)
+}).catch(errorMessage => {
+    console.log(":( " + errorMessage);
+});
+```
+
+> ⚔ ...What will it log ?
+> 
+> 1. `:( Oops` right away
+> 2. `:( Oops` after 2 seconds
+> 3. `:( 1 - Oops` after 2 seconds
+
+Just so that you understand the value of the Promise syntax let's have a quick look at how it would look like with callbacks:
+
+```ts
+var myFirstCallback = function (message) {
+    return function (resolve, reject) {
+        setTimeout(() => {
+            resolve("1 - " + message);
+        }, 2000);
+    };
+}
+
+var mySecondCallback = function (message) {
+    return function (resolve, reject) {
+        setTimeout(() => {
+            resolve("2 - " + message);
+        }, 2000);
+    };
+}
+
+myFirstCallback("hello")(successMessage => {
+    mySecondCallback(successMessage)(successMessage => {
+        console.log(successMessage)
+    }, errorMessage => {
+        console.log(":( " + errorMessage);
+    });
+}, errorMessage => {
+    console.log(":( " + errorMessage);
+})
+```
+
+Promise also comes with lot's of tooling. For example they can be run in parallel, merging the results only when all Promises have been resolved, thanks to `Promise.all(promises: Promise[])`
+
+So if we wan tto make our previous example work this way:
+
+```ts
+var myFirstPromise = function (message) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(() => {
+            resolve("1 - " + message); //Yay! Everything went well!
+        }, 2000);
+    });
+}
+
+var mySecondPromise = function (message) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(() => {
+            resolve("2 - " + message); //Yay! Everything went well!
+        }, 2000);
+    });
+}
+
+Promise.all<string>([myFirstPromise(""), mySecondPromise("")]).then(function(results) {
+    console.log(results[1] + results[0] + "hello")//do work. result is an array contains the values of the three fulfilled promises.
+}).catch(function(error) {
+    console.log(":( " + error)
+});
+```
+
+> ⚔ What will it log ?
+> 
+> 1. `2 - 1 - hello` after 4 seconds
+> 2. `2 - 1 - hello` after 2 seconds
+> 3. `2 - 1 - hello` right away
 
 
 [Playground Link](goo.gl/Wg7eX2)
