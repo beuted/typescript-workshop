@@ -82,6 +82,8 @@ let l: number = typedLib.arrayLength([1,2,3]);
 console.log(l); // 3
 ```
 
+Now let's change the type assertion we are doing:
+
 ```ts
 let untypedLib: any = {
     arrayLength: (arr: any[]) => arr.length
