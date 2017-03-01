@@ -18,8 +18,8 @@ function varTest() {
 > ⚔ What does it return ?
 > 
 > 1. "1", "2"
-> 2. "1", "1"
-> 3. "2", "2"
+> 2. "2", "2"
+> 3. "2", "1"
 
 ```ts
 function letTest() {
@@ -35,8 +35,8 @@ function letTest() {
 > ⚔ What does it return ?
 > 
 > 1. "1", "2"
-> 2. "1", "1"
-> 3. "2", "2"
+> 2. "2", "2"
+> 3. "2", "1"
 
 [Playground Link](https://www.typescriptlang.org/play/#src=function%20varTest()%20%7B%0D%0A%20%20var%20x%20%3D%201%3B%0D%0A%20%20if%20(true)%20%7B%0D%0A%20%20%20%20var%20x%20%3D%202%3B%20%20%2F%2F%20same%20variable!%0D%0A%20%20%20%20console.log(x)%3B%20%20%2F%2F%202%0D%0A%20%20%7D%0D%0A%20%20console.log(x)%3B%20%20%2F%2F%202%0D%0A%7D%0D%0A%0D%0Afunction%20letTest()%20%7B%0D%0A%20%20let%20x%20%3D%201%3B%0D%0A%20%20if%20(true)%20%7B%0D%0A%20%20%20%20let%20x%20%3D%202%3B%20%20%2F%2F%20different%20variable%0D%0A%20%20%20%20console.log(x)%3B%20%20%2F%2F%202%0D%0A%20%20%7D%0D%0A%20%20console.log(x)%3B%20%20%2F%2F%201%0D%0A%7D)
 
