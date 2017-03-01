@@ -71,15 +71,27 @@ pushNumberToArray(awesomeArray, 'hey'); // This will raise an error at compilati
 ## Type assertion
 
 ```ts
-let someValue: any = "this is a string";
-let strLength: number = (<string>someValue).length;
+let untypedLib: any = {
+    arrayLength: (arr: any[]) => arr.length
+};
+
+let typedLib = <{ arrayLength: (arr: any[]) => number }>untypedLib;
+
+let l: number = typedLib.arrayLength([1,2,3]);
+
+console.log(l); // 3
 ```
 
-[Playground Link](https://www.typescriptlang.org/play/#src=let%20someValue%3A%20any%20%3D%20%22this%20is%20a%20string%22%3B%0D%0Alet%20strLength%3A%20number%20%3D%20(%3Cstring%3EsomeValue).length%3B%20)
-
 ```ts
-let someValue: any = 1;
-let strLength: number = (<string>someValue).length;
+let untypedLib: any = {
+    arrayLength: (arr: any[]) => arr.length
+};
+
+let typedLib = <{ anotherName: (arr: any[]) => number }>untypedLib;
+
+let l: number = typedLib.anotherName([1,2,3]);
+
+console.log(l);
 ```
 
 > ⚔ Will this raise an Error...
@@ -87,6 +99,8 @@ let strLength: number = (<string>someValue).length;
 > 1. ... At compilation time
 > 2. ... At execution time
 > 3. No error will be raised
+
+[Playground Link](https://goo.gl/H4EiyF)
 
 Type assertion is a sort of casting that performs no special checking or restructuring of data. It is a way to tell the compilator "trust me, I know what I’m doing.".
 
