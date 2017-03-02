@@ -1,10 +1,11 @@
 {
     "compilerOptions": {
         "module": "commonjs",
+        "moduleResolution": "node",
         "noImplicitAny": false,
         "removeComments": true,
         "preserveConstEnums": false,
-        "sourceMap": false,
-        "moduleResolution": "node"
-    }
+        "sourceMap": false
+    },
+    "files": ["app.ts"]
 }
