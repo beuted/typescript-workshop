@@ -1,4 +1,4 @@
-import { IStringValidator } from './IStringValidator';
+import { IStringValidator } from '../IStringValidator';
 
 export const numberRegexp = /^[0-9]+$/;
 

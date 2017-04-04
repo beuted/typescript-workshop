@@ -1,4 +1,4 @@
-import { ZipCodeValidator } from './ZipCodeValidator';
+import { ZipCodeValidator } from './RandomFolder/ZipCodeValidator';
 import * as readline from 'readline';
 
 const rl = readline.createInterface({
